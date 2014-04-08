@@ -155,7 +155,6 @@ function medialounge_create_tax_classes() {
             $classes[] = $term->slug;
         }
         $the_classes = implode(' ', $classes);
-        $the_classes .= ' ' . get_the_author_meta('user_nicename');
         return $the_classes;   
     }
 }
