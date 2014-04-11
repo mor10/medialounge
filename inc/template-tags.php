@@ -158,3 +158,41 @@ function medialounge_create_tax_classes() {
         return $the_classes;   
     }
 }
+
+
+function medialounge_redirect_author() {
+    if (is_author()) {
+        global $wp_query;
+        if ($wp_query->post_count == 1) {
+            wp_redirect( get_permalink( $wp_query->posts['0']->ID ) );
+        }
+    }
+}
+
+add_action('template_redirect', 'medialounge_redirect_author');
+
+
+function medialounge_list_users_alphabetically()
+{
+	$users = get_users( 'orderby=user_login&role=author' ); 
+ 
+	$first_letter = '';
+        $firstinstance = 0;
+        echo '<ul class="artist-list">';
+	foreach( $users as $user )
+	{
+		$space = strpos( $user->user_login, ' ' );
+		$letter = substr( $user->user_login, 0, 1 );
+		$letter = strtoupper( $letter );
+		
+		if ( $letter != $first_letter )
+		{
+                    $first_letter = $letter;
+                    if ( $firstinstance != 0  ) { echo '</ul></li>'; }
+                    echo "<li>$first_letter<ul>"; 
+		}
+		echo '<li><a href="' . get_author_posts_url( $user->ID, $user->user_nicename ) . '" title="' . $user->display_name . '">' . $user->display_name . '</a></li>';
+                $firstinstance++;
+	}
+        echo '</ul>';
+}   
