@@ -4,58 +4,29 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="<?php echo medialounge_create_tax_classes(); ?>">
-	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+<article id="post-<?php the_ID(); ?>" class="item poster <?php echo medialounge_create_tax_classes(); ?>">
+    <?php
+        echo '<div class="index-poster">';
+        echo the_post_thumbnail('index-thumb');
+        echo '</div>';
+    ?>
+    <div class="poster-content">
+        <header class="poster-header">
+            <a href="<?php echo esc_url( get_permalink() ); ?>" title="More info about <?php echo get_the_title(); ?>">
+                <div class="poster-hero">
+                    Creator
+                </div>
+                <h1 class="poster-artist"><?php echo esc_html( get_the_author() ); ?></h1>
+                <div class="poster-excerpt"><?php the_excerpt(); ?></div>
+            </a>
+        </header><!-- .entry-header -->
+        <footer class="poster-footer">
+            <div class="poster-time"><?php echo get_field('movie_length'); ?> min</div>
+            <div class="poster-nav clear">
+                <div class="poster-trailer"><a href="#" title="Play trailer">Trailer</a></div>
+                <div class="poster-full"><a href=""#" title="Play full movie">Full</a></div>
+            </div>
+        </footer>
+    </div>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php medialounge_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-                <div>Classes: <?php echo medialounge_create_tax_classes(); ?></div>
-	</header><!-- .entry-header -->
-
-	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-	<?php else : ?>
-	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'medialounge' ) ); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'medialounge' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-	<?php endif; ?>
-
-	<footer class="entry-footer">
-		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
-			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$categories_list = get_the_category_list( __( ', ', 'medialounge' ) );
-				if ( $categories_list && medialounge_categorized_blog() ) :
-			?>
-			<span class="cat-links">
-				<?php printf( __( 'Posted in %1$s', 'medialounge' ), $categories_list ); ?>
-			</span>
-			<?php endif; // End if categories ?>
-
-			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$tags_list = get_the_tag_list( '', __( ', ', 'medialounge' ) );
-				if ( $tags_list ) :
-			?>
-			<span class="tags-links">
-				<?php printf( __( 'Tagged %1$s', 'medialounge' ), $tags_list ); ?>
-			</span>
-			<?php endif; // End if $tags_list ?>
-		<?php endif; // End if 'post' == get_post_type() ?>
-
-
-		<?php edit_post_link( __( 'Edit', 'medialounge' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

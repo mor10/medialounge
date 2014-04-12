@@ -31,6 +31,7 @@ function medialounge_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+        add_image_size('index-thumb', '177', '275', true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -73,7 +74,7 @@ add_action( 'widgets_init', 'medialounge_widgets_init' );
  * Enqueue scripts and styles.
  */
 function medialounge_scripts() {
-	wp_enqueue_style( 'medialounge-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'medialounge-style', get_stylesheet_uri(), array(), '20140412' );
         
         wp_enqueue_style('mediaelement');
         

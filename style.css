@@ -652,3 +652,86 @@ object {
 .video-player {
     position: relative;
 }
+
+
+/* Index posters 177 275 */
+
+.poster {
+    position: relative;
+    width: 177px;
+    height: 275px;
+    margin: 0 20px 20px 0;
+}
+.index-poster,
+.poster-content {
+    position: absolute;
+    width: 177px;
+    height: 275px;
+}
+
+.poster-content {
+    background: hsla(0, 0%, 0%, .7);
+    color: #fff;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+}
+
+.poster-content:hover {
+    opacity: 1;
+}
+
+.poster-header {
+    height: 190px;
+    overflow: hidden;
+}
+
+.poster-hero {
+    text-transform: uppercase;
+    font-size: 90%;
+}
+
+.poster-content a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a .poster-artist {
+    color: #66ffff;
+    font-size: 120%;
+    line-height: 1.3em;
+}
+
+.poster-excerpt {
+    font-size: 90%;
+    margin-top: 3px;
+    overflow: hidden;
+}
+
+.poster-footer {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+
+.poster-nav {
+    height: 30px;
+}
+
+.poster-trailer,
+.poster-full {
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 80%;
+}
+
+.poster-trailer {
+    float: left;
+    border-right: 1px solid #66ffff;
+}
+
+.poster-full {
+    float: right;
+}
