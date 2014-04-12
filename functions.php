@@ -76,14 +76,16 @@ function medialounge_scripts() {
 	wp_enqueue_style( 'medialounge-style', get_stylesheet_uri() );
         
         wp_enqueue_style('mediaelement');
+        
         wp_enqueue_style( 'mep-styles', get_template_directory_uri() . '/css/mep-feature-playlist.css' );
 
 	wp_enqueue_script( 'medialounge-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-        
-        wp_enqueue_script( 'medialounge-mediaelement-playlist', get_template_directory_uri() . '/js/mep-feature-playlist.js', array('wp-mediaelement','jquery'), '20120206', true );
-        
-        wp_enqueue_script( 'medialounge-playlist-settings', get_template_directory_uri() . '/js/playlist-settings.js', array('medialounge-mediaelement-playlist'), '20140331', true );
+        if (!is_single()) {
+            wp_enqueue_script( 'medialounge-mediaelement-playlist', get_template_directory_uri() . '/js/mep-feature-playlist.js', array('wp-mediaelement','jquery'), '20120206', true );
 
+            wp_enqueue_script( 'medialounge-playlist-settings', get_template_directory_uri() . '/js/playlist-settings.js', array('medialounge-mediaelement-playlist'), '20140331', true );
+        }
+        wp_enqueue_script('mediaelement-settings', get_stylesheet_directory_uri() . '/js/mediaelement-settings.js', array('wp-mediaelement','jquery'), '20140410', true );
 	wp_enqueue_script( 'medialounge-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
