@@ -13,6 +13,14 @@
 
 get_header(); ?>
 
+<div id="index-video" class="video-player">
+    <video id="video-movie" controls preload="metadata" 
+           width="0" height="0" 
+        class=" video-js vjs-default-skin" >
+        <source src='/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4' type="video/mp4" title="Oceans">
+    </video>     
+</div>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
@@ -30,12 +38,6 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
-
-			<?php medialounge_paging_nav(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
 

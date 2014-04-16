@@ -22,9 +22,9 @@
         </header><!-- .entry-header -->
         <footer class="poster-footer">
             <div class="poster-time"><?php echo get_field('movie_length'); ?> min</div>
-            <div class="poster-nav clear">
-                <div class="poster-trailer"><a href="#" title="Play trailer">Trailer</a></div>
-                <div class="poster-full"><a href=""#" title="Play full movie">Full</a></div>
+            <div class="poster-nav control clear">
+                <div class="poster-trailer"><a href="#" class="trailer-trigger" data-bind="/medialounge/wp-content/videos/trailers/<?php echo the_field('video_slug'); ?>trailer.mp4" title="Play trailer">Trailer</a></div>
+                <div class="poster-full"><a href="#" class="movie-trigger" data-bind="/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4" title="Play full movie">Full</a></div>
             </div>
         </footer>
     </div>

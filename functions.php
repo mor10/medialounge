@@ -76,6 +76,8 @@ add_action( 'widgets_init', 'medialounge_widgets_init' );
 function medialounge_scripts() {
 	wp_enqueue_style( 'medialounge-style', get_stylesheet_uri(), array(), '20140412' );
         
+        wp_enqueue_style( 'medialounge-open-sans', get_stylesheet_directory_uri() . '/fonts/opensans/opensans.css' );
+        
         wp_enqueue_style('mediaelement');
         
         wp_enqueue_style( 'mep-styles', get_template_directory_uri() . '/css/mep-feature-playlist.css' );
@@ -89,9 +91,6 @@ function medialounge_scripts() {
         wp_enqueue_script('mediaelement-settings', get_stylesheet_directory_uri() . '/js/mediaelement-settings.js', array('wp-mediaelement','jquery'), '20140410', true );
 	wp_enqueue_script( 'medialounge-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'medialounge_scripts' );
 

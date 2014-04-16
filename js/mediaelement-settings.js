@@ -10,10 +10,22 @@ jQuery(document).ready(function($){
         });
         
     });
-    $('video').on("ended",function($){
+    
+    $('video').on("ended",function(){
         player.exitFullScreen();
         player.showControls();
+        $("#index-video").removeClass('show-video');
     });
+    
+    // Custom operations for videos on index page
+    
+    $('#index-video video').ready(function(){
+        $('.poster-nav a').click(function(){
+            player.play();
+            $("#index-video").addClass('show-video');
+        });
+    });
+    
     
     $('.control a').click(function(){
         var $url = $( this ).attr( 'data-bind' );

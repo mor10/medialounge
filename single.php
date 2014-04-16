@@ -23,13 +23,13 @@ get_header(); ?>
                                 <video id="video-movie" controls preload="metadata" 
                                        width="600" height="300"
                                     poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
-                                    <source src='/medialounge/wp-content/videos/movie01.mp4' type="video/mp4" title="Oceans">
+                                    <source src='/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4' type="video/mp4" title="Oceans">
                                 </video>     
                             </div>
 
                             <div class="control">
-                                <a href="#" class="movie-trigger" data-bind="/medialounge/wp-content/videos/movie01.mp4">Full Movie</a> 
-                                <a href="#" class="trailer-trigger" data-bind="/medialounge/wp-content/videos/trailer01.mp4">Trailer</a>
+                                <a href="#" class="movie-trigger" data-bind="/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4">Full Movie</a> 
+                                <a href="#" class="trailer-trigger" data-bind="/medialounge/wp-content/videos/trailers/<?php echo the_field('video_slug'); ?>trailer.mp4">Trailer</a>
                             </div>
                             
                             
