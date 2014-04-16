@@ -21,8 +21,9 @@ get_header(); ?>
     </video>     
 </div>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area clear">
 		<main id="main" class="site-main" role="main">
+                    <div id="film-list">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -40,7 +41,7 @@ get_header(); ?>
 			<?php endwhile; ?>
 
 		<?php endif; ?>
-
+                    </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

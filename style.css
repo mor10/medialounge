@@ -135,6 +135,11 @@ textarea {
 	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.5;
+        background: url('images/riverbg.jpg') no-repeat fixed top left;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 }
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
@@ -446,15 +451,16 @@ a:active {
 	width: 50%;
 }
 */
-
+.site-header {
+    margin-right: 4em;
+}
 
 .nav-header {
- 
-    float:left;
-    width:90%;
-    margin: 1em -15px;
-      
-}
+    float: right;
+    width: 92%;
+    margin: 1em 0 1em -18px;
+}    
+
 .logo-header {
  
     float:left;
@@ -718,6 +724,14 @@ opacity:0.5;
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
+
+.site-header {
+    margin-right: 4em;
+}
+.content-area {
+    background: #fff;
+    margin: 1em 4em 4em;
+}
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
@@ -833,8 +847,12 @@ object {
 
 /* Index posters 177 275 */
 
+#film-list {
+    margin: 1em;
+}
 .poster {
     position: relative;
+    float: left;
     width: 177px;
     height: 275px;
     margin: 0 20px 20px 0;
