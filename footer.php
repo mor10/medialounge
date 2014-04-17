@@ -11,6 +11,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+            <!--
             <div class="colophon-button">
                 <a href="#"><i class="fa fa-chevron-down"></i></a>
             </div>
@@ -51,7 +52,7 @@
                             </ul>
                     </div>
 
-            </div><!--end class container-->
+            </div>--><!--end class container-->
 
 	</footer><!-- #colophon -->
 </div><!-- #page -->

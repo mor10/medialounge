@@ -12,114 +12,140 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-                    <?php echo get_the_term_list( $post->ID, 'film-format'); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                             <header class="entry-header">
-                                <div class="explanation">Movie title (post title)</div>
-                                    <h1 class="entry-title"><?php the_title(); ?></h1>
+                                <h1 class="entry-title"><?php the_title(); ?></h1>
+                               
+                                <div class="movie-meta">
+                                    <?php
+                                    $genres = wp_get_object_terms($post->ID, 'genre');
+                                    if ( $genres ) {
+                                        echo '<ul class="tax-genre">';
+                                        foreach($genres as $term){ 
+                                            echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.' <span class="dividers">//</span></li>'; 
+                                        }
+                                        echo '</ul><!-- .tax-genre -->';
+                                    }
+                                    $techniques = wp_get_object_terms($post->ID, 'technique');
+                                    if ( $techniques ) {
+                                        echo '<ul class="tax-technique">';
+                                        foreach($techniques as $term){ 
+                                            echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'<span class="dividers"> //</span></li>'; 
+                                        }
+                                        echo '</ul><!-- .tax-technique -->';
+                                    }
+                                    $durations = wp_get_object_terms($post->ID, 'duration');
+                                    if ( $techniques ) {
+                                        echo '<ul class="tax-duration">';
+                                        foreach($durations as $term){ 
+                                            echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'<span class="dividers"> //</span></li>'; 
+                                        }
+                                        echo '</ul><!-- .tax-duration -->';
+                                    }
+                                    $nationalities = wp_get_object_terms($post->ID, 'nationality');
+                                    if ( $nationalities ) {
+                                        echo '<ul class="tax-nationality">';
+                                        foreach($nationalities as $term){ 
+                                            echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'<span class="dividers"> //</span></li>'; 
+                                        }
+                                        echo '</ul><!-- .tax-nationality -->';
+                                    }
+                                    $moods = wp_get_object_terms($post->ID, 'mood');
+                                    if ( $moods ) {
+                                        echo '<ul class="tax-mood">';
+                                        foreach($moods as $term){ 
+                                            echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'<span class="dividers"> //</span></li>'; 
+                                        }
+                                        echo '</ul><!-- .tax-mood -->';
+                                    }
+                                    ?>
+                                </div>
 
                             </header><!-- .entry-header -->
+                            
+                            <div class="onehalf-container">
                              
-                            <div class="video-player">
-                                <video id="video-movie" controls preload="metadata" 
-                                       width="600" height="300"
-                                    poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
-                                    <source src='/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4' type="video/mp4" title="Oceans">
-                                </video>     
-                            </div>
+                                <div class="video-player">
+                                    <video id="video-movie" controls preload="metadata" 
+                                           width="580" height="280"
+                                        poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
+                                        <source src='/medialounge/wp-content/videos/movie01.mp4' type="video/mp4" title="Oceans">
+                                    </video> 
+                                </div>
+                            
+                                <div class="excerpt">
+                                    <?php the_excerpt(); ?>
+                                </div><!-- .excerpt -->
+                                <div class="collaboration">
+                                 <div class="other-films">
+                                  <h3 class="collab">This artist also collaborated in:</h3>
+                                  <span class="collaborated-films">poster</span>
+                                  <span class="collaborated-films">poster</span>
+                                  <span class="collaborated-films">poster</span>
+                                  <span class="collaborated-films">poster</span>
+                                 </div>
+                                  <div class="collaborators">
+                                    <h3 class="collab">Collaborators in Film</h3>
+                                    <?php
+                                        // check if the repeater field has rows of data
+                                        if( have_rows('collaborators') ):
+                                            echo '<ul class="other-people">';
+                                                // loop through the rows of data
+                                            while ( have_rows('collaborators') ) : the_row();
 
-                            <div class="control">
-                                <a href="#" class="movie-trigger" data-bind="/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4">Full Movie</a> 
-                                <a href="#" class="trailer-trigger" data-bind="/medialounge/wp-content/videos/trailers/<?php echo the_field('video_slug'); ?>trailer.mp4">Trailer</a>
-                            </div>
-                            
-                            
-                            <div class="excerpt">
-                                <div class="explanation">Short description (excerpt)</div>
-                                <?php the_excerpt(); ?>
-                            </div><!-- .excerpt -->
-                            <div class="entry-content">
-                                <div class="explanation">Artist statement (post content)</div>
-                                    <?php the_content(); ?>
-                            </div><!-- .entry-content -->
-                            
-                            <div class="movie-meta">
-                                <div class="explanation">Taxonomy output</div>
-                                <?php
-                                $genres = wp_get_object_terms($post->ID, 'genre');
-                                if ( $genres ) {
-                                    echo '<ul class="tax-genre">';
-                                    foreach($genres as $term){ 
-                                        echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'</li>'; 
-                                    }
-                                    echo '</ul><!-- .tax-genre -->';
-                                }
-                                $techniques = wp_get_object_terms($post->ID, 'technique');
-                                if ( $techniques ) {
-                                    echo '<ul class="tax-technique">';
-                                    foreach($techniques as $term){ 
-                                        echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'</li>'; 
-                                    }
-                                    echo '</ul><!-- .tax-technique -->';
-                                }
-                                $durations = wp_get_object_terms($post->ID, 'duration');
-                                if ( $techniques ) {
-                                    echo '<ul class="tax-duration">';
-                                    foreach($durations as $term){ 
-                                        echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'</li>'; 
-                                    }
-                                    echo '</ul><!-- .tax-duration -->';
-                                }
-                                $nationalities = wp_get_object_terms($post->ID, 'nationality');
-                                if ( $nationalities ) {
-                                    echo '<ul class="tax-nationality">';
-                                    foreach($nationalities as $term){ 
-                                        echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'</li>'; 
-                                    }
-                                    echo '</ul><!-- .tax-nationality -->';
-                                }
-                                $moods = wp_get_object_terms($post->ID, 'mood');
-                                if ( $moods ) {
-                                    echo '<ul class="tax-mood">';
-                                    foreach($moods as $term){ 
-                                        echo '<li><span class="icon-'.$term->slug.'"></span>'.$term->name.'</li>'; 
-                                    }
-                                    echo '</ul><!-- .tax-mood -->';
-                                }
-                                ?>
-                            </div>
+                                                // display a sub field value
+                                                $collaborator = get_sub_field('collaborator_name');
+                                                echo '<li><a  class="peeps" href="' . get_site_url('/') . '?author=' . $collaborator[ID] . '" title="See movies by ' . $collaborator[display_name] . '">' . $collaborator[display_name] . '</a></li>';
 
-                            <div class="artist-info">
-                                <div class="explanation">Artist name (from profile)</div>
+                                            endwhile;
+                                            echo '</ul>';
+                                        else :
+
+                                            // no rows found
+
+                                        endif;
+
+                                        ?>
+                                  </div>
+
+                                </div>
+                            </div>
+                             
+
+                            
+                             <div class="stills">
+                              <p class="still">still one</p>
+                              <p class="still">still two</p>
+                              <p class="still">still three</p>
+                              <p class="still">still poster</p>
+                                <div class="control">
+                                    <a href="#" class="movie-trigger" data-bind="/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4">Full Movie</a> 
+                                    <a href="#" class="trailer-trigger" data-bind="/medialounge/wp-content/videos/trailers/<?php echo the_field('video_slug'); ?>trailer.mp4">Trailer</a>
+                                </div>
+                             </div>
+                            
+                           
+                            <div class="artist-info ">
+                              <div class="headshot"></div>
+                                
                                 <h1 class="artist-name"><?php echo esc_html( get_the_author() ); ?></h1>
+                            </div>
+                            <div class="onequarter-container"> 
+                              <h2 class="bio">Bio</h2>
                                 <p class="author-bio">
+                                  The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one. 
                                     <?php the_author_meta( 'description' )  ?>
                                 </p>
                             </div>
-                            <div class="collaborators">
+                            <div class="entry-content onehalf-container">
+                                <div class="as-title">Artist Statement (post content)</div>
+                                    <p class="artist-statement"><?php the_content(); ?></p>
+                            </div><!-- .entry-content -->
+                            
+                            
 
-                                <?php
-
-                                // check if the repeater field has rows of data
-                                if( have_rows('collaborators') ):
-                                    echo '<ul>';
-                                        // loop through the rows of data
-                                    while ( have_rows('collaborators') ) : the_row();
-
-                                        // display a sub field value
-                                        $collaborator = get_sub_field('collaborator_name');
-                                        echo '<li><a href="' . get_site_url('/') . '?author=' . $collaborator[ID] . '" title="See movies by ' . $collaborator[display_name] . '">' . $collaborator[display_name] . '</a></li>';
-
-                                    endwhile;
-                                    echo '</ul>';
-                                else :
-
-                                    // no rows found
-
-                                endif;
-
-                                ?>
-                            </div>
+                            
+                            
 
                             <footer class="entry-footer">
                                     <?php // This would be where the movies he/she has collaborated on goes I think ?>
