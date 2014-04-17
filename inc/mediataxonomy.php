@@ -12,6 +12,32 @@ add_action('init', 'mediaterm', 0);
 
 function mediaterm() {
     
+        // Format - hierarchical
+	$labels = array(
+		'name'              => _x( 'Formats', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Format', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Formats' ),
+		'all_items'         => __( 'All Formats' ),
+		'parent_item'       => __( 'Parent Format' ),
+		'parent_item_colon' => __( 'Parent Format:' ),
+		'edit_item'         => __( 'Edit Format' ),
+		'update_item'       => __( 'Update Format' ),
+		'add_new_item'      => __( 'Add New Format' ),
+		'new_item_name'     => __( 'New Format Name' ),
+		'menu_name'         => __( 'Format' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'format' ),
+	);
+        
+        register_taxonomy( 'format', array( 'post' ), $args );
+
         // Genre - hierarchical
 	$labels = array(
 		'name'              => _x( 'Genres', 'taxonomy general name' ),
