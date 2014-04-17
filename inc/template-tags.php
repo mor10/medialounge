@@ -141,6 +141,7 @@ add_action( 'save_post',     'medialounge_category_transient_flusher' );
 
 function medialounge_create_tax_classes() {
     $tax_array = array(
+            'film-format',
             'genre',
             'technique',
             'duration',

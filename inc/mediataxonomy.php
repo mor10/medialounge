@@ -36,7 +36,7 @@ function mediaterm() {
 		'rewrite'           => array( 'slug' => 'format' ),
 	);
         
-        register_taxonomy( 'format', array( 'post' ), $args );
+        register_taxonomy( 'film-format', array( 'post' ), $args );
 
         // Genre - hierarchical
 	$labels = array(

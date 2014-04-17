@@ -13,6 +13,8 @@
 
 get_header(); ?>
 
+<?php get_template_part('inc/filters'); ?>
+
 <div id="index-video" class="video-player">
     <video id="video-movie" controls preload="metadata" 
            width="0" height="0" 
@@ -20,6 +22,7 @@ get_header(); ?>
         <source src='/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4' type="video/mp4" title="Oceans">
     </video>     
 </div>
+
 
 	<div id="primary" class="content-area clear">
 		<main id="main" class="site-main" role="main">
@@ -44,5 +47,6 @@ get_header(); ?>
                     </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
 
 <?php get_footer(); ?>
