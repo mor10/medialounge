@@ -2,18 +2,15 @@
 jQuery(document).ready(function($){
   
   $(".colophon-button").click(function(){
-      if($(".colophon-container").hasClass("show")) {
-          $(".colophon-contaier").removeClass("show");
-      } 
-      else {
-          $(".colophon-contaier").addClass("show");
-      }
+      $(".colophon-container").slideToggle('slow');
+          
     
-    if($(".colophon-button").hasClass("rotate")){
-       $(".colophon-button").removeClass("rotate");
+    
+    if($(".colophon-button i").hasClass("rotate")){
+       $(".colophon-button i").removeClass("rotate");
     } else {
-        $(".colophon-button").addClass("rotate");
+        $(".colophon-button i").addClass("rotate");
     };
-    /*$(".button i").toggleClass('rotate');*/
-  });
+    return false;
+});
 });

@@ -11,10 +11,8 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-            <!--
-            <div class="colophon-button">
-                <a href="#"><i class="fa fa-chevron-down"></i></a>
-            </div>
+            
+
 
             <div class="colophon-container">
 
@@ -27,7 +25,7 @@
 
                             <h2>Instructor</h2>
                             <ul class="align-left">
-                                    <li>Morten Rand-Hendrickson</li>
+                                    <li>Morten Rand-Hendriksen</li>
                             </ul>
 
                             </br>
@@ -52,8 +50,11 @@
                             </ul>
                     </div>
 
-            </div>--><!--end class container-->
+            </div><!--end class container-->
 
+                        <div class="colophon-button">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

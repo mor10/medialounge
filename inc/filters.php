@@ -21,7 +21,7 @@
 
 <div id="the-optional-content">
 
-<div id="formatBox" class="filter-boxes">
+<div id="formatBox" class="filter-boxes clear">
 <h3>FORMAT</h3>
     
              <div class = "option-set singleColumn formBox" data-group="film-format">
@@ -54,7 +54,7 @@ $terms = get_terms("film-format");
             <h3>GENRE</h3>
             <h3 id="styleTitle">STYLE / TECHNIQUE</h3>       
             <h3>NATIONALITY</h3>        
-            <h3 id="moodTitle">MOOD</h3>
+            <h3 id="moodTitle">TAG</h3>
             <h3>DURATION</h3>
        
        
@@ -142,7 +142,7 @@ $terms = get_terms("nationality");
  <!--   <input type="checkbox" value=""        id="mood-all" class="all" checked /><label for="mood-all">All Moods</label><br>-->
             <?php
 
-$terms = get_terms("mood");
+$terms = get_terms("post_tag");
 //var_dump($terms);
     if (!empty( $terms ) && !is_wp_error( $terms ) ){
        foreach( $terms as $term){

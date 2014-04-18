@@ -143,37 +143,5 @@ function mediaterm() {
 	);
 
 	register_taxonomy( 'nationality', array( 'post' ), $args );
-        
-        // Mood - non-hierarchical
-        $labels = array(
-		'name'                       => _x( 'Moods', 'taxonomy general name' ),
-		'singular_name'              => _x( 'Mood', 'taxonomy singular name' ),
-		'search_items'               => __( 'Search Moods' ),
-		'popular_items'              => __( 'Popular Moods' ),
-		'all_items'                  => __( 'All Moods' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Mood' ),
-		'update_item'                => __( 'Update Mood' ),
-		'add_new_item'               => __( 'Add New Mood' ),
-		'new_item_name'              => __( 'New Mood Name' ),
-		'separate_items_with_commas' => __( 'Separate moods with commas' ),
-		'add_or_remove_items'        => __( 'Add or remove moods' ),
-		'choose_from_most_used'      => __( 'Choose from the most used moods' ),
-		'not_found'                  => __( 'No moods found.' ),
-		'menu_name'                  => __( 'Moods' ),
-	);
-
-	$args = array(
-		'hierarchical'          => false,
-		'labels'                => $labels,
-		'show_ui'               => true,
-		'show_admin_column'     => true,
-		'update_count_callback' => '_update_post_term_count',
-		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'mood' ),
-	);
-
-	register_taxonomy( 'mood', 'post', $args );
 
 }

@@ -146,7 +146,7 @@ function medialounge_create_tax_classes() {
             'technique',
             'duration',
             'nationality',
-            'mood'
+            'post_tag'
         );
     $terms = get_the_terms( get_the_ID(), $tax_array );
     $classes = array();

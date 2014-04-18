@@ -50,7 +50,7 @@ get_header(); ?>
                                         }
                                         echo '</ul><!-- .tax-nationality -->';
                                     }
-                                    $moods = wp_get_object_terms($post->ID, 'mood');
+                                    $moods = wp_get_object_terms($post->ID, 'post_tag');
                                     if ( $moods ) {
                                         echo '<ul class="tax-mood">';
                                         foreach($moods as $term){ 
@@ -73,12 +73,22 @@ get_header(); ?>
                                     </video> 
                                 </div>
                             
+                                 
+                                
+                                
                                 <div class="excerpt">
                                     <?php the_excerpt(); ?>
                                 </div><!-- .excerpt -->
                                 <div class="collaboration">
                                  <div class="other-films">
                                   <h3 class="collab">This artist also collaborated in:</h3>
+                                  
+                                  
+                                 
+                                  
+                                  
+                                  
+                                  
                                   <span class="collaborated-films">poster</span>
                                   <span class="collaborated-films">poster</span>
                                   <span class="collaborated-films">poster</span>
@@ -114,10 +124,26 @@ get_header(); ?>
 
                             
                              <div class="stills">
-                              <p class="still">still one</p>
-                              <p class="still">still two</p>
-                              <p class="still">still three</p>
-                              <p class="still">still poster</p>
+                                 
+                                 <?php
+                                // check if the repeater field has rows of data
+                                if( have_rows('screenshots') ):
+
+                                        // loop through the rows of data
+                                    while ( have_rows('screenshots') ) : the_row();
+                                        $image = get_sub_field('image');
+                                        // display a sub field value
+                                        echo '<figure class="still"><a href="' . $image['url'] . '"><img src="' . $image['url'] . '"></a></figure>';
+
+                                    endwhile;
+
+                                endif;
+
+                                ?>
+                                 <?php 
+                                 $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large'); 
+                                 ?>
+                                 <figure class="still"><a href="<?php echo $large_image_url[0]; ?>"><?php echo get_the_post_thumbnail(); ?></a></figure>
                                 <div class="control">
                                     <a href="#" class="movie-trigger" data-bind="/medialounge/wp-content/videos/movies/<?php echo the_field('video_slug'); ?>.mp4">Full Movie</a> 
                                     <a href="#" class="trailer-trigger" data-bind="/medialounge/wp-content/videos/trailers/<?php echo the_field('video_slug'); ?>trailer.mp4">Trailer</a>
@@ -126,14 +152,13 @@ get_header(); ?>
                             
                            
                             <div class="artist-info ">
-                              <div class="headshot"></div>
+                              <div class="headshot"><?php userphoto_the_author_photo(); ?></div>
                                 
                                 <h1 class="artist-name"><?php echo esc_html( get_the_author() ); ?></h1>
                             </div>
                             <div class="onequarter-container"> 
                               <h2 class="bio">Bio</h2>
                                 <p class="author-bio">
-                                  The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one. 
                                     <?php the_author_meta( 'description' )  ?>
                                 </p>
                             </div>

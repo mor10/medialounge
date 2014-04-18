@@ -366,91 +366,6 @@ a:active {
 5.2 Menus
 --------------------------------------------------------------*/
 
-/*
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-.main-navigation ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-.main-navigation li {
-	float: left;
-	position: relative;
-}
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	display: none;
-	float: left;
-	left: 0;
-	position: absolute;
-	top: 1.5em;
-	z-index: 99999;
-}
-.main-navigation ul ul ul {
-	left: 100%;
-	top: 0;
-}
-.main-navigation ul ul a {
-	width: 200px;
-}
-.main-navigation ul ul li {
-}
-.main-navigation li:hover > a {
-}
-.main-navigation ul ul :hover > a {
-}
-.main-navigation ul ul a:hover {
-}
-.main-navigation ul li:hover > ul {
-	display: block;
-}
-.main-navigation .current_page_item a,
-.main-navigation .current-menu-item a {
-}
-
-.menu-toggle {
-	cursor: pointer;
-	display: none;
-}
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-
-	.main-navigation ul {
-		display: none;
-	}
-}
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
-*/
 .site-header {
     margin-right: 4em;
 }
@@ -728,6 +643,11 @@ opacity:0.5;
 .site-header {
     margin-right: 4em;
 }
+
+.site-content {
+    width: 1253px;
+    margin: 0 auto 2em;
+}
 .content-area {
     background: #fff;
     margin: 1em 4em 4em;
@@ -942,8 +862,8 @@ a .poster-artist {
 /* Footer */
 
 .colophon-container{
-	position:absolute;
-        bottom: -275px;
+	position:fixed;
+        bottom: 0;
 	width: 100%;
 	height:275px;
 	padding: 1.25em 0.5em 1em 5em;
@@ -951,6 +871,7 @@ a .poster-artist {
 	font-size: 1.45em;
 	color:hsla(100, 100%, 100%, 1);
 	background: hsla(0, 0%, 0%, 0.75);
+        display: none;
 }
 
 .show {
@@ -1015,16 +936,14 @@ a .poster-artist {
 	display:block;
 	padding-right: 5%;
 	color:yellow;
+        margin-bottom: 1em;
 }
 
-.fa-chevron-down{
+.fa-chevron-up{
 	font-size: 1.5em;
-	  -webkit-transform: rotate(180deg);
 }
 
-.rotate{
-  -webkit-transform: rotate(180deg);
-}
+
 
 
 /*--------------------------------------------*/
@@ -1104,9 +1023,6 @@ a .poster-artist {
 
 #filters {
     background: #F1FFFF;  
-    width:96%;
-    margin-left:3%;
-    margin-right:1%;
     font-family:'Open Sans';
     font-size:15px;
     line-height:22px;
@@ -1117,9 +1033,6 @@ a .poster-artist {
 
 #filterTitles{
     background: #F1FFFF;  
-    width:96%;
-    margin-right:1%;
-    margin-left:3%;
     border-top: 1px dotted #43C7F4;
     padding-top:20px;
     padding-bottom:10px;
@@ -1138,9 +1051,6 @@ a .poster-artist {
 
 #formatBox, #selectionBox{
     background: #FFF;  
-    width:96%;
-    margin-right:1%;
-    margin-left:3%;
     color:#666;
     font-family:'Open Sans';
     font-size:18px;
@@ -1150,8 +1060,6 @@ a .poster-artist {
     padding-top:10px;
     padding-bottom:10px;
     padding-left:20px;
-    margin-top:5px;
-    margin-bottom:5px;
 }
 
 #formatBox{
@@ -1195,9 +1103,6 @@ a .poster-artist {
 
 
 #selectionBox{
-    width:96%;
-    margin-left:3%;
-    margin-right:1%;
 }
 
 
@@ -1224,9 +1129,6 @@ a .poster-artist {
 
 #filterHide{
     background:#fff;
-    width:96%;
-    margin-left:3%;
-    margin-right:1%;
     color:#666;
     font-family:'Open Sans';
     font-size:18px;
@@ -1266,17 +1168,16 @@ a .poster-artist {
 }
 
 #formatBox h3{
-    width:20%;
     display:inline;
+    float: left;
 }
 
 .formBox{
-    width:90%;
     display:inline;
-    float:right;
-    font-family:'Open Sans';
+    float:left;
+    margin-bottom: -10px;
+    
     font-size:15px;
-    line-height:22px;
     color:#666;
     text-transform:lowercase;
     font-style:normal;
@@ -1354,6 +1255,7 @@ a .poster-artist {
 	height: 67px;
 	border: 1px solid #333;
 	margin-bottom: 5px;
+        overflow: hidden;
 }
 .excerpt {
 	margin-left: 10px;
