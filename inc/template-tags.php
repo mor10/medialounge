@@ -197,3 +197,17 @@ function medialounge_list_users_alphabetically()
 	}
         echo '</ul>';
 }   
+
+/* Get post thumbnails for other movies the student has collaborated in */
+
+
+// custom filter to replace '=' with 'LIKE'
+function my_posts_where( $where )
+{
+	$where = str_replace("meta_key = 'collaborators_%_collaborator_name'", "meta_key LIKE 'collaborators_%_collaborator_name'", $where);
+        
+	return $where;
+}
+ 
+add_filter('posts_where', 'my_posts_where');
+

@@ -116,6 +116,7 @@ a:focus {
 }
 a:hover,
 a:active {
+    
 	outline: 0;
 }
 a img {
@@ -351,15 +352,15 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #43C7F4;
 }
 a:visited {
-	color: purple;
+	color: #43C7F4;
 }
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #0da1d4;
 }
 
 /*--------------------------------------------------------------
@@ -768,14 +769,14 @@ object {
 /* Index posters 177 275 */
 
 #film-list {
-    margin: 1em;
+    
 }
 .poster {
     position: relative;
     float: left;
     width: 177px;
     height: 275px;
-    margin: 0 20px 20px 0;
+    margin: 0 25px 20px 0;
 }
 .index-poster,
 .poster-content {
@@ -825,9 +826,9 @@ a .poster-artist {
 
 .poster-footer {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     height: 60px;
-    width: 100%;
+    width: 157px;
 }
 
 .poster-nav {
@@ -1111,7 +1112,6 @@ a .poster-artist {
 }
 
 #filter-clear a{
-    color:#43C7F4;
     text-decoration:none;
     font-weight:400;
     font-style:normal;
@@ -1142,7 +1142,6 @@ a .poster-artist {
 
 
 .button a{
-    color:#43C7F4;
     text-decoration:none;
     font-weight:400;
     font-style:normal;
@@ -1189,66 +1188,71 @@ a .poster-artist {
 .content-area {
 	margin: 0 auto;
 	width: 1253px;
-	height: 660px;
+	min-height: 660px;
 	display: block;
 	position: relative;
 	background: none repeat scroll 0% 0% #FFF;
-	padding: 0px 10px;
+	padding: 20px;
 	overflow: hidden;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
+
+.entry-title {
+	font-weight: 700;
+	font-size: 30px; 
+}
 .movie-meta {
-	padding-left: 10px;
 	font: 600 italic 14px 'Open Sans', Helvetica, sans-serif;
 	color: #43C7F4;
+}
+
+.movie-meta ul {
+    margin: 0;
+}
+    
+.movie-meta li {
+	display: inline;
+	margin-right: 5px;
+}
+.dividers {
+	color: black;
+        margin-right: 5px;
+}
+
+.single-left {
+    width: 740px;
+    margin-top: 1em;
+    float: left;
+}
+
+.video-player {
 	width: 600px;
-	height: 20px;
-	
 }
-.tax-genre, .tax-technique, .tax-duration, .tax-nationality, .tax-mood{
-	list-style: none outside none;
-	display: inline-block;
-	overflow: auto;
-	margin: 0;
-	
+
+.excerpt {
+    margin: 1em 0;
+    
+	width: 600px;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.3em;
+	color: #333;
 }
+
+
 .onehalf-container {
 	width: 620px;
 	float: left;
 	position: relative;
-	margin-top: 20px;	
 }
-.control {
-	font: 600 italic 14px 'Open Sans', Helvetica, sans-serif;
-	color: #43C7F4;
-	
+
+.onehalf-right {
+    float: left;
+    width: 120px;
 }
-.onequarter-container {
-	width: 270px;
-	float: right;
-	position: relative;
-	margin-right: 10px;
-}
-.entry-title {
-	padding: 10px;
-	font-weight: 700;
-	font-size: 30px; 
-}
-.explanation {
-	padding: 10px;
-	font-weight: 700;
-	font-size: 30px;
-}
-.video-player {
-	width: 600px;
-	margin-left: 10px;
-}
+
 .stills {
-	position: relative;
-	float: left;
-	width: 125px;
-	height: 300px;
-	margin-top: 20px;	
+	
 }
 .still {
 	width: 120px;
@@ -1257,42 +1261,121 @@ a .poster-artist {
 	margin-bottom: 5px;
         overflow: hidden;
 }
-.excerpt {
-	margin-left: 10px;
-	width: 600px;
-	font-weight: 300;
-	font-size: 16px;
-	line-height: 1.3em;
-	color: #333;
+
+.control {
+    margin-top: .7em;
 }
+.control a {
+    display: block;
+	font: 600 italic 14px 'Open Sans', Helvetica, sans-serif;
+        margin-bottom:3px;
+}
+.control i:before {
+    font-size: 80%;
+    vertical-align: 2px;
+    margin-right: 3px;
+}
+
+
+.collaboration {
+	width: 740px;
+	float: left;
+	position: relative;
+	border-top: 2px solid #e0e0e0;
+}
+
+.other-films {
+	float: left;
+	border-right: 3px dotted #e0e0e0;
+	width: 50%;
+}
+.collab {
+	font-weight: 600;
+	font-size: 18px;
+	color: #333;
+	padding: .7em 0;
+}
+
+.poster-list {
+    margin: 0;
+}
+
+.collaborated-films {
+	height: 96px;
+	width: 64px;
+	display: inline-block;
+        margin-right: .5em;
+}
+
+.collaborators {
+	float: left;
+	height: auto;
+	width: 50%;
+	padding-left: 1em;
+}
+
+.other-people{ 
+    list-style-type: none;
+    margin: 0;
+
+}
+
+
+
+.peeps {
+	color:#43C7F4;
+	text-decoration: none;
+	display: inline-block;
+}
+
+
+.single-right {
+    float: left;
+    width: 440px;
+    margin-top: 1em;
+    margin-left: 2em;
+}
+
+.artist-info {
+    width: 150px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
 .headshot {
 	width: 150px;
 	height: 150px;
-	background-image: url('http://digitalmediazone.ryerson.ca/wp-content/uploads/2014/01/Tomas-web-headshot.jpg');
+	background-image: url('images/generic.png');
 	border-radius: 78px;
+}
+
+.artist-name {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.artist-bio {
+    float: left;
+    width: 260px;
 }
 .bio {
 	font-weight: 600;
 	font-size: 24px;
 	color: #333;
-	margin-bottom: 19px;
+        clear: none;
 }
-.entry-content {
-	position: relative;
-	margin-left: 2em;
-	width: 450px;
-	float: right;
-	font: 300 16px 'Open Sans';
+
+
+.explanation {
+	font-weight: 700;
+	font-size: 30px;
 }
-.artist-info {
-	position: relative;
-	float: left;
-	left: 40px;
-}
-.artist-name {
-	margin-top: 20px;
-	text-align: center;
-}
+
+
+
+
+
 .as-title {
 	font-weight: 600;
 	font-size: 24px;
@@ -1307,56 +1390,9 @@ p.artist-statement {
 	font: 300 16px 'Open Sans';
 	line-height: 1.3em;
 }
-.movie-meta li {
-	display: inline;
-	margin-left: 5px;
-}
-.dividers {
-	color: black;
-}
 
-.collaboration {
-	width: 740px;
-	float: left;
-	position: relative;
-	height: 20px;
-	border-top: 2px solid #e0e0e0;
-}
-.collaborators {
-	float: right;
-	height: auto;
-	width: 300px;
-	padding-bottom: 5px;
-}
-.other-people{ 
-	float: right;
-	height: auto;
-	width: 300px;
-}
-.other-films {
-	float: left;
-	border-right: 3px dotted #e0e0e0;
-	padding: 0px 10px;
-	width: 50%;
-}
-.collaborated-films {
-	height: 96px;
-	width: 64px;
-	border: 1px solid #666;
-	display: inline-block;
-}
-h3.collab {
-	font-weight: 600;
-	font-size: 18px;
-	color: #333;
-	padding: 5px 0px;
-}
-.peeps {
-	color:#43C7F4;
-	text-decoration: none;
-	display: inline-block;
-}
+
 a {
-	color:#43C7F4;
+
 	text-decoration: none;
 }

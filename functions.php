@@ -32,6 +32,7 @@ function medialounge_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
         add_image_size('index-thumb', '177', '275', true);
+        add_image_size('collaboration', '64', '96', true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
