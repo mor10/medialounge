@@ -26,6 +26,13 @@ jQuery(document).ready(function($){
         });
     });
     
+    // Custom operations for videos on single page
+    
+    $('.video-player video').ready(function(){
+        $('.control a').click(function(){
+            player.play();
+        });
+    });
     
     $('.control a').click(function(){
         var $url = $( this ).attr( 'data-bind' );

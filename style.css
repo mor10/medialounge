@@ -1004,10 +1004,14 @@ a .poster-artist {
 
 /*MY STYLES*/
 
+.button {
+    float: right;
+    margin-right: 20px;
+}
+
 .option-set{
     border-right: 1px solid black;
     border-style:dotted;
-    width:29%;
     display:inline-block;
     vertical-align:top;
     -webkit-column-count:2; /* Chrome, Safari, Opera */
@@ -1029,16 +1033,19 @@ a .poster-artist {
     line-height:22px;
     color:#666;
     text-transform:lowercase;
-    
+    border-top: 1px dotted #43C7F4;
 }
 
-#filterTitles{
-    background: #F1FFFF;  
-    border-top: 1px dotted #43C7F4;
+.filter-stack {
+    width: 33%;
+    float: left;
+}
+.filter-title {    
     padding-top:20px;
-    padding-bottom:10px;
+    padding-bottom:20px;
     padding-left:25px;
     color:#666;
+    text-transform: uppercase;
     font-family:'Open Sans';
     font-size:18px;
     line-height:22px;
@@ -1046,9 +1053,6 @@ a .poster-artist {
     font-weight:600;
 }
 
-#filterTitles h3{
-    display:inline;
-}
 
 #formatBox, #selectionBox{
     background: #FFF;  
@@ -1067,6 +1071,31 @@ a .poster-artist {
  border-top: 1px dotted #43C7F4;   
 }
 
+.filter-boxes ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.filter-boxes li {
+    padding: 2px 0;
+    width: 174px;
+}
+
+.tag-stack li {
+    display: inline-block;
+    padding:5px 10px;
+    margin: 0 5px 10px 0;
+    border-radius: 5px;
+    width: auto;
+    border: solid 1px #43C7F4;
+}
+
+.tag-stack li.active {
+    background: #43C7F4;
+    color: #fff;
+    border-color: #fff;
+}
 /*----------------*/
 
 
@@ -1074,22 +1103,17 @@ a .poster-artist {
     -webkit-column-count:1; /* Chrome, Safari, Opera */
     -moz-column-count:1; /* Firefox */
     column-count:1;
+    border: none;
+    margin-right: 20px;
 }
 
-.moodBox{
-    width:16%;   
-}
-.durationBox{
-    width:8%;   
-}
+
 
 .option-set label{
     padding-left:8px;
 }
 
-.nationalityBox{
-    width:14%;
-}
+
 
 #styleTitle{
     padding-left: 25%;
@@ -1141,20 +1165,8 @@ a .poster-artist {
 }
 
 
-.button a{
-    text-decoration:none;
-    font-weight:400;
-    font-style:normal;
-    font-size:40px;
-    width:10%;
-    margin-left:60%;  
-}
 
-.button{
-    width:20%;
-    display:inline;
-    float:right;
-}
+
 #filterHide h3{
     padding-left:20px;
     width:20%;
@@ -1348,6 +1360,13 @@ a .poster-artist {
 	height: 150px;
 	background-image: url('images/generic.png');
 	border-radius: 78px;
+        overflow: hidden;
+}
+
+.headshot img {
+    border-radius: 78px;
+    width: 150px;
+    height: auto;
 }
 
 .artist-name {

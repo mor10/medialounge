@@ -6,6 +6,7 @@ jQuery(document).ready(function ($) {
         $('.filter-boxes input:checked').removeAttr('checked');
         var clear = '*';
         $container.isotope({ filter: clear });
+        $('.tag-stack li:has(input:checkbox:not(:checked))').removeClass('active');
         return false;
     });
     
@@ -37,11 +38,17 @@ jQuery(document).ready(function ($) {
   $(".button a").click(function(){
     $("#the-optional-content").slideToggle('slow');
     
-    if($(".button a").hasClass("rotate")){
-     $(".button a").removeClass("rotate");
+    if($(".button i").hasClass("rotate")){
+     $(".button i").removeClass("rotate");
     }else{
-     $(".button a").addClass("rotate"); 
+     $(".button i").addClass("rotate"); 
     }
   
   });
+    $('.tag-stack input:checkbox').click(function () {
+        $('.tag-stack li:has(input:checkbox:checked)').addClass('active');
+        $('.tag-stack li:has(input:checkbox:not(:checked))').removeClass('active');
+    });
+
 });
+

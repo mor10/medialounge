@@ -109,30 +109,27 @@ get_header(); ?>
                                     wp_reset_postdata(); 
                                     ?>
                                     
-                                
-                                    <div class="collaborators">
-                                        <h3 class="collab">Collaborators in Film</h3>
-                                        <?php
-                                            // check if the repeater field has rows of data
-                                            if( have_rows('collaborators') ):
-                                                echo '<ul class="other-people">';
-                                                    // loop through the rows of data
-                                                while ( have_rows('collaborators') ) : the_row();
+                                    <?php 
+                                    if( have_rows('collaborators') ):
+                                    ?>
+                                        <div class="collaborators">
+                                            <h3 class="collab">Collaborators in Film</h3>
+                                            <?php
+                                                // check if the repeater field has rows of data
 
-                                                    // display a sub field value
-                                                    $collaborator = get_sub_field('collaborator_name');
-                                                    echo '<li><a  class="peeps" href="' . get_site_url('/') . '?author=' . $collaborator[ID] . '" title="See movies by ' . $collaborator[display_name] . '">' . $collaborator[display_name] . '</a></li>';
+                                                    echo '<ul class="other-people">';
+                                                        // loop through the rows of data
+                                                    while ( have_rows('collaborators') ) : the_row();
 
-                                                endwhile;
-                                                echo '</ul>';
-                                            else :
+                                                        // display a sub field value
+                                                        $collaborator = get_sub_field('collaborator_name');
+                                                        echo '<li><a  class="peeps" href="' . get_site_url('/') . '?author=' . $collaborator[ID] . '" title="See movies by ' . $collaborator[display_name] . '">' . $collaborator[display_name] . '</a></li>';
 
-                                                // no rows found
-
-                                            endif;
-
+                                                    endwhile;
+                                                    echo '</ul>';
                                             ?>
-                                    </div><!-- .collaborators -->
+                                        </div><!-- .collaborators -->
+                                    <?php endif; ?>
                                 </div><!-- .collaboration -->
 
                             </div><!-- .single-left -->

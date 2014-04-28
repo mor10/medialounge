@@ -11,8 +11,8 @@
 
     <h3>FILTER BY:</h3>
     
-    <div class="button clear">
-        <a href="#" >^</a>  
+    <div class="button">
+        <a href="#" ><i class="fa fa-chevron-up"></i></a>  
     </div>
 </div> 
 
@@ -49,137 +49,93 @@ $terms = get_terms("film-format");
 
 </div> <!--CloseFormatBox-->
 
-   <div id = "filterTitles">
-    
-            <h3>GENRE</h3>
-            <h3 id="styleTitle">STYLE / TECHNIQUE</h3>       
-            <h3>NATIONALITY</h3>        
-            <h3 id="moodTitle">TAG</h3>
-            <h3>DURATION</h3>
-       
-       
-    </div>
 
 <div id="filters" class="filter-boxes">
 
- 
+    <div class="filter-stack">
+        <h3 class="filter-title">GENRE</h3>
 
-         <div class = "option-set" data-group="genre">
-
-   <!-- <input type="checkbox" value=""        id="genre-all" class="all" checked /><label for="genre-all">All Genres</label><br>-->
-      
-      <?php
-
-$terms = get_terms("genre");
-//var_dump($terms);
-    if (!empty( $terms ) && !is_wp_error( $terms ) ){
-       foreach( $terms as $term){
-        ?>
-      <input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" />
-        
-             <label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label>   <br> 
-      <?php
-       }
-        
-    }
-
-?>
-
-</div>
+        <div class = "option-set" data-group="genre">
+            <ul>
+            <?php
+            $terms = get_terms("genre");
+            //var_dump($terms);
+                if (!empty( $terms ) && !is_wp_error( $terms ) ){
+                   foreach( $terms as $term){
+                    ?>
+                <li><input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label></li>
+                  <?php
+                   }
+                }
+            ?>
+            </ul>
+            </div>
+    </div>
     
-
-  <div class = "option-set" data-group="technique">
-                             
-   <!-- <input type="checkbox" value=""        id="technique-all" class="all" checked /><label for="technique-      all">All Techniques</label><br>-->
-
-<?php
-
-    $terms = get_terms("technique");
-    //var_dump($terms);
-    if (!empty( $terms ) && !is_wp_error( $terms ) ){
-       foreach( $terms as $term){
-        ?>
-      <input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label            for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label>    <br>
-      <?php
-       }
-        
-    }
-
-?>
-
+    <div class="filter-stack">
+        <h3 class="filter-title">STYLE/TECHNIQUE</h3>
+        <div class = "option-set" data-group="technique">
+            <ul>
+            <?php
+                $terms = get_terms("technique");
+                //var_dump($terms);
+                if (!empty( $terms ) && !is_wp_error( $terms ) ){
+                   foreach( $terms as $term){
+                    ?>
+                <li><input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label            for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label></li>
+                  <?php
+                   }
+                }
+            ?>
+            </ul>
+        </div>
     </div>
         
+    <div class="filter-stack">
+        <h3 class="filter-title">NATIONALITY</h3>
 
-
-
-     <div class = "option-set singleColumn nationalityBox" data-group="nationality">
-                   
-
-   <!-- <input type="checkbox" value=""        id="nationality-all" class="all" checked /><label for="nationality-all">All Nationalities</label><br>-->
-    
-      <?php
-
-$terms = get_terms("nationality");
-//var_dump($terms);
-    if (!empty( $terms ) && !is_wp_error( $terms ) ){
-       foreach( $terms as $term){
-        ?>
-      <input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label><br>
-      <?php
-       }
-        
-    }
-
-?>
-
-
-      </div>
-    
-
-     <div class = "option-set singleColumn moodBox" data-group="mood">
-
-        
- <!--   <input type="checkbox" value=""        id="mood-all" class="all" checked /><label for="mood-all">All Moods</label><br>-->
+        <div class = "option-set  nationalityBox" data-group="nationality">    
             <?php
+            $terms = get_terms("nationality");
+            
+            echo '<ul>';
+                if (!empty( $terms ) && !is_wp_error( $terms ) ){
+                   foreach( $terms as $term){
+                    ?>
+                    <li><input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label></li>
+                  <?php
+                   }
+                }
+                echo '</ul>';
+            ?>
+        </div>
+    </div>
 
-$terms = get_terms("post_tag");
-//var_dump($terms);
-    if (!empty( $terms ) && !is_wp_error( $terms ) ){
-       foreach( $terms as $term){
-        ?>
-      <input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label><br>
-      <?php
-       }
-    }
-
-?>        
-      </div>   
-    
-    
-     <div class = "option-set noBorder singleColumn durationBox" data-group="duration">
-         
-         
-          <!--   <input type="checkbox" value=""        id="mood-all" class="all" checked /><label for="mood-all">All Moods</label><br>-->
+    <div class="tag-stack">
+        <h3 class="filter-title">TAGS</h3>
+        <div class = "option-set singleColumn moodBox" data-group="mood">
+            <ul>
             <?php
-
-$terms = get_terms("duration");
-//var_dump($terms);
-    if (!empty( $terms ) && !is_wp_error( $terms ) ){
-       foreach( $terms as $term){
-        ?>
-      <input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label><br>
-      <?php
-       }
-    }
-
-?> 
-
-
-</div>
+             $terms = get_terms( 'post_tag', array(
+                'orderby'    => 'count',
+                'hide_empty' => true
+            ) );
+            //var_dump($terms);
+                if (!empty( $terms ) && !is_wp_error( $terms ) ){
+                   foreach( $terms as $term){
+                    ?>
+                <li><input type="checkbox" value=".<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" /><label for="<?php echo $term->slug; ?>"><?php  echo $term->name; ?></label></li>
+                  <?php
+                   }
+                }
+            ?>   
+            </ul>
+        </div>   
+    </div>
+  
     
     
-    
-    </div><!--close filters-->
+</div><!--close filters-->
 
 
 
