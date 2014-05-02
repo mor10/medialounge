@@ -190,9 +190,14 @@ function medialounge_list_users_alphabetically()
 		{
                     $first_letter = $letter;
                     if ( $firstinstance != 0  ) { echo '</ul></li>'; }
-                    echo "<li>$first_letter<ul>"; 
+                    echo '<li><h2  class="letter-head">' . $first_letter . '</h2><ul class="clear">'; 
 		}
-		echo '<li><a href="' . get_author_posts_url( $user->ID, $user->user_nicename ) . '" title="' . $user->display_name . '">' . $user->display_name . '</a></li>';
+                $current_user = get_userdata($user->ID);
+		echo '<li><a href="' . get_author_posts_url( $user->ID, $user->user_nicename ) . '" title="' . $user->display_name . '">';
+                echo '<div class="tiny-photo">';
+                userphoto($user->ID);
+                echo '</div>';
+                echo '<div class="the-artist-name"><span class="firstname">' . $current_user->user_firstname . '</span> <span class="lastname"><em>' . $current_user->user_lastname . '</em></span></div></a></li>';
                 $firstinstance++;
 	}
         echo '</ul>';

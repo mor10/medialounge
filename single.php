@@ -36,7 +36,7 @@ get_header(); ?>
                                     <div class="video-player">
                                         <video id="video-movie" controls preload="metadata" 
                                                width="600" height="280"
-                                            poster="http://upload.wikimedia.org/wikipedia/en/7/71/Finding_Nemo_Coverart.png" class=" video-js vjs-default-skin" >
+                                            poster="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" class=" video-js vjs-default-skin" >
                                             <source src='/medialounge/wp-content/videos/movie01.mp4' type="video/mp4" title="Oceans">
                                         </video> 
                                     </div>
@@ -135,6 +135,11 @@ get_header(); ?>
                             </div><!-- .single-left -->
                             
                            <div class="single-right">
+                               <?php 
+                                if ( get_the_author_meta( 'description' ) ) { 
+                                ?>
+                               <div class="bio-container clear">
+                                <?php } ?>
                                 <div class="artist-info ">
                                     <div class="headshot"><?php userphoto_the_author_photo(); ?></div>
                                     <div class="artist-name"><?php echo esc_html( get_the_author() ); ?></div>
@@ -148,7 +153,9 @@ get_header(); ?>
                                             <?php the_author_meta( 'description' )  ?>
                                         </p>
                                     </div>
+                               </div><!-- .bio-container -->
                                 <?php } ?>
+                                   
                                 <div class="statement">
                                     <h2 class="bio">Artist Statement</h2>
                                         <?php the_content(); ?>

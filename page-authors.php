@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Artist Name List
+ * Template Name: Artist Name List New
  */
 
 get_header(); ?>
@@ -12,9 +12,6 @@ get_header(); ?>
                             <header class="entry-header">
                                     <h1 class="entry-title"><?php the_title(); ?></h1>
 
-                                    <div class="entry-meta">
-                                            <?php medialounge_posted_on(); ?>
-                                    </div><!-- .entry-meta -->
                             </header><!-- .entry-header -->
                             
                             <div class="entry-content">

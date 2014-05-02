@@ -12,7 +12,7 @@
     <h3>FILTER BY:</h3>
     
     <div class="button">
-        <a href="#" ><i class="fa fa-chevron-up"></i></a>  
+        <a href="#" ><i class="fa fa-chevron-up rotate"></i></a>  
     </div>
 </div> 
 

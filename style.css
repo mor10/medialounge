@@ -367,13 +367,9 @@ a:active {
 5.2 Menus
 --------------------------------------------------------------*/
 
-.site-header {
-    margin-right: 4em;
-}
-
 .nav-header {
     float: right;
-    width: 92%;
+    width: 89%;
     margin: 1em 0 1em -18px;
 }    
 
@@ -642,11 +638,11 @@ opacity:0.5;
 --------------------------------------------------------------*/
 
 .site-header {
-    margin-right: 4em;
+    margin-right: 2em;
 }
 
 .site-content {
-    width: 1253px;
+    width: 1200px;
     margin: 0 auto 2em;
 }
 .content-area {
@@ -776,7 +772,7 @@ object {
     float: left;
     width: 177px;
     height: 275px;
-    margin: 0 25px 20px 0;
+    margin: 0 16px 20px 0;
 }
 .index-poster,
 .poster-content {
@@ -1004,6 +1000,9 @@ a .poster-artist {
 
 /*MY STYLES*/
 
+#the-optional-content {
+    display: none;
+}
 .button {
     float: right;
     margin-right: 20px;
@@ -1199,7 +1198,7 @@ a .poster-artist {
 /* Artist Page Styles */
 .content-area {
 	margin: 0 auto;
-	width: 1253px;
+	width: 1200px;
 	min-height: 660px;
 	display: block;
 	position: relative;
@@ -1343,7 +1342,7 @@ a .poster-artist {
 
 .single-right {
     float: left;
-    width: 440px;
+    width: 388px;
     margin-top: 1em;
     margin-left: 2em;
 }
@@ -1376,7 +1375,7 @@ a .poster-artist {
 
 .artist-bio {
     float: left;
-    width: 260px;
+    width: 208px;
 }
 .bio {
 	font-weight: 600;
@@ -1415,3 +1414,88 @@ a {
 
 	text-decoration: none;
 }
+
+/* Artists index */
+
+.artist-list {
+    margin: 0;
+    -webkit-column-count: 4;
+    -webkit-column-width: 20%;
+    column-count: 4;
+    column-width: 20%;
+    list-style-type: none;
+}
+
+.artist-list li {
+    padding-right: 2em;
+}
+.artist-list ul {
+    margin: 0;
+    
+}
+
+.artist-list a {
+    color: #000;
+}
+
+.artist-list a:hover {
+    color: #33ccff;
+}
+
+.letter-head {
+    font-weight: bold;
+    font-size: 110%;
+    padding-bottom: .5em;
+    margin: 2em 0 1em;
+    color: #33ccff;
+    border-bottom: 1px solid #33ccff;
+}
+
+.artist-list ul,
+.artist-list li {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid-column;
+}
+.artist-list ul li {
+    display: block;
+    padding: 1em 0;
+}
+
+.artist-list li:first-child > .letter-head {
+    margin-top: 0;
+}
+
+.tiny-photo {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 1em;
+    background-image: url('images/generic.png');
+    background-size: cover;
+    border-radius: 25px;
+    border: 1px solid #33ccff;
+    overflow: hidden;
+}
+
+.tiny-photo img {
+    width: 50px;
+    height: auto;
+    border-radius: 25px;  
+}
+
+.the-artist-name {
+    margin-top: 3px;
+}
+.firstname,
+.lastname {
+    display: block;
+    line-height: 1.3em;
+}
+
+.lastname {
+    font-size: 110%;
+}
+.the-artist-name em {
+    font-weight: bold;
+}
+

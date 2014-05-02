@@ -15,58 +15,11 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title">
+				<h1 class="entry-title">
 					<?php
-						if ( is_category() ) :
-							single_cat_title();
-
-						elseif ( is_tag() ) :
-							single_tag_title();
-
-						elseif ( is_author() ) :
-							printf( __( 'Author: %s', 'medialounge' ), '<span class="vcard">' . get_the_author() . '</span>' );
-
-						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'medialounge' ), '<span>' . get_the_date() . '</span>' );
-
-						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'medialounge' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'medialounge' ) ) . '</span>' );
-
-						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'medialounge' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'medialounge' ) ) . '</span>' );
-
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'medialounge' );
-
-						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'medialounge');
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'medialounge');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'medialounge' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'medialounge' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'medialounge' );
-
-						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', 'medialounge' );
-
-						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', 'medialounge' );
-
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', 'medialounge' );
-
-						else :
-							_e( 'Archives', 'medialounge' );
-
-						endif;
-					?>
+                                        $term =	$wp_query->queried_object;
+                                        echo 'All ' . $term->name . ' Movies';
+                                        ?>
 				</h1>
 				<?php
 					// Show an optional term description.
